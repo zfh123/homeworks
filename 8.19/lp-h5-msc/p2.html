@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no"/>
+    <link href="css/base.css?v=1" rel="stylesheet">
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/base.js" type="text/javascript"></script>
+    <script src="js/ejs.js" type="text/javascript"></script>
+    <title>VIP会员</title>
+</head>
+<body>
+
+<div class="content vip-content">
+
+    <ul class="buy-list list">
+        <!--
+        <li class="buy-item selected">
+            <div class="time"><div class="time-num">12</div></div>
+            <div class="day">日均￥0.16</div>
+            <div class="price">￥58.00</div>
+        </li>
+        <li class="buy-item">
+            <div class="time"><div class="time-num">6</div></div>
+            <div class="day">日均￥0.16</div>
+            <div class="price">￥58.00</div>
+        </li>
+        <li class="buy-item">
+            <div class="time"><div class="time-num">3</div></div>
+            <div class="day">日均￥0.16</div>
+            <div class="price">￥58.00</div>
+        </li>
+        <li class="buy-item">
+            <div class="time"><div class="time-num">1</div></div>
+            <div class="day">日均￥0.16</div>
+            <div class="price">￥58.00</div>
+        </li>
+        -->
+    </ul>
+
+    <div class="space"></div>
+
+    <div class="hot-title">荣耀特权</div>
+    <ul class="hot-list list my">
+        <li class="hot-item"><img src="assets/vp1.png" class="hot-img">列表优先推荐</li>
+        <li class="hot-item"><img src="assets/vp1.png" class="hot-img">专属会员标识</li>
+        <li class="hot-item"><img src="assets/vp1.png" class="hot-img">更多展示机会</li>
+    </ul>
+
+    <div class="space"></div>
+
+    <div class="hot-title">能力特权</div>
+    <ul class="hot-list list other">
+        <li class="hot-item"><img src="assets/vp1.png" class="hot-img">更多搜索条件</li>
+        <li class="hot-item"><img src="assets/vp1.png" class="hot-img">查看谁关注我</li>
+        <li class="hot-item"><img src="assets/vp1.png" class="hot-img">查看访客记录</li>
+    </ul>
+
+    <div class="space big-space"></div>
+
+    <div class="buy-vip-btn">
+        <img src="assets/vip.png"><span class="tip-btn">成为会员</span>
+    </div>
+</div>
+
+<script id="buy-list" type="text/html">
+    {% for(var i = 0; i < list.length; i++){ %}
+        <li class="buy-item">
+            <div class="time"><div class="time-num">{%= list[i].b137 %}</div></div>
+            <div class="day">日均￥{%= Math.floor(list[i].b126 / 30 / list[i].b137 * 100) / 100 %}</div>
+            <div class="price">￥{%= list[i].b126 %}</div>
+            {% if(getDiscountShow(list[i].b128)){ %}
+                <div class="discount">{%= getDiscount(list[i].b128) %}</div>
+            {% } %}
+            {% if(getAdvanceShow(list[i].b138)){ %}
+                <div class="advance">{%= getAdvance(list[i].b138) %}</div>
+            {% } %}
+        </li>
+    {% } %}
+</script>
+
+<script id="hot-list" type="text/html">
+    {% for(var i = 0; i < list.length; i++){ %}
+        <li class="hot-item" data-id="{%= list[i].b13 %}"><img src="{%= list[i].b35 %}" class="hot-img">{%= list[i].b51 %}</li>
+    {% } %}
+</script>
+
+</body>
+</html>

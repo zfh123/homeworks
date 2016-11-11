@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no"/>
+	<meta name="format-detection" content="telephone=no" />
+    <link href="css/base.css?v=6" rel="stylesheet">
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/base.js" type="text/javascript"></script>
+    <script src="js/ejs.js" type="text/javascript"></script>
+    <title>会员中心</title>
+</head>
+<body>
+    <div class="content">
+
+        <img class="banner" src="assets/banner_vip.png">
+
+        <div class="role-box player">
+            <div class="role-img"></div>
+            <div class="role-info">
+                <div class="role-name"><span class="name-word">名字</span><img class="vip-name-img" src="assets/icon-name-vip.png"></div>
+                <div class="role-tip"></div>
+            </div>
+        </div>
+
+        <div class="space"></div>
+
+        <div class="more-item xiexin">
+            <div class="hot-icon"></div>
+            <div class="role-img" style="background-image: url(assets/xiexin.png)"></div>
+            <div class="role-info">
+                <div class="role-name">写信包月</div>
+                <div class="role-tip">服务期内无限量给异性发信</div>
+            </div>
+        </div>
+        <div class="more-item tequan">
+            <div class="role-img" style="background-image: url(assets/zhuangshu.png)"></div>
+            <div class="role-info">
+                <div class="role-name">VIP会员</div>
+                <div class="role-tip">会员可享受8项特权!</div>
+            </div>
+        </div>
+        <div class="more-item order">
+            <div class="role-img" style="background-image: url(assets/myorder.png)"></div>
+            <div class="role-info">
+                <span class="allorder">我的订单</span>
+            </div>
+            <div class="role-info gotomyorder"></div>
+        </div>
+    </div>
+
+<script id="vip-item" type="text/html">
+    <div>
+        <span class="vv1 vv">{%= name %}</span>
+        <span class="vv3 vv">{%= time %}</span>
+    </div>
+</script>
+</body>
+</html>
