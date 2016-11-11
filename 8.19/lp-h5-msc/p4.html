@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no"/>
+    <link href="css/base.css?v=1" rel="stylesheet">
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/base.js" type="text/javascript"></script>
+    <script src="js/ejs.js" type="text/javascript"></script>
+    <title>写信包月</title>
+</head>
+<body>
+
+<div class="content vip-content">
+
+    <div class="vip-img"><img src="assets/monthyy.png"></div>
+
+    <div class="power-box">
+        <div class="power-title">写信包月服务</div>
+        <div class="power-info">服务期内，发信回信全免费，与心仪的对象欢乐畅聊。</div>
+    </div>
+    
+    <div class="space"></div>
+
+    <ul class="buy-list list">
+        <li class="buy-item selected">
+            <div class="time"><div class="time-num">12</div></div>
+            <div class="day">日均￥0.16</div>
+            <div class="price">￥58.00</div>
+        </li>
+        <li class="buy-item">
+            <div class="time"><div class="time-num">6</div></div>
+            <div class="day">日均￥0.16</div>
+            <div class="price">￥58.00</div>
+        </li>
+        <li class="buy-item">
+            <div class="time"><div class="time-num">3</div></div>
+            <div class="day">日均￥0.16</div>
+            <div class="price">￥58.00</div>
+        </li>
+        <li class="buy-item">
+            <div class="time"><div class="time-num">1</div></div>
+            <div class="day">日均￥0.16</div>
+            <div class="price">￥58.00</div>
+        </li>
+    </ul>
+
+    <div class="space big-space"></div>
+
+    <div class="buy-vip-btn">购买</div>
+
+</div>
+
+<script id="buy-list" type="text/html">
+    {% for(var i = 0; i < list.length; i++){ %}
+        <li class="buy-item">
+            <div class="time"><div class="time-num">{%= list[i].b137 %}</div></div>
+            <div class="day">日均￥{%= Math.floor(list[i].b126 / 30 / list[i].b137 * 100) / 100 %}</div>
+            <div class="price">￥{%= list[i].b126 %}</div>
+            {% if(getDiscountShow(list[i].b128)){ %}
+                <div class="discount">{%= getDiscount(list[i].b128) %}</div>
+            {% } %}
+            {% if(getAdvanceShow(list[i].b138)){ %}
+                <div class="advance">{%= getAdvance(list[i].b138) %}</div>
+            {% } %}
+        </li>
+    {% } %}
+</script>
+
+</body>
+</html>
